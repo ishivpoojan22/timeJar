@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 export const register = async (data) =>
   fetch(`${BASE_URL}/auth/register`, {
@@ -13,3 +13,4 @@ export const login = async (data) =>
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   }).then((res) => res.json());
+

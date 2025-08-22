@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-// Axios instance with Authorization header
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL
+  baseURL: process.env.REACT_APP_BACKEND_URL
 });
 
 api.interceptors.request.use((config) => {
@@ -11,8 +10,7 @@ api.interceptors.request.use((config) => {
     config.headers['Authorization'] = `Bearer ${token}`;
   }
   return config;
-}, (error) => {
-  return Promise.reject(error);
-});
+}, (error) => Promise.reject(error));
 
 export default api;
+
